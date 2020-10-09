@@ -57,10 +57,11 @@ exports.deleteUser = (req, res, next) => {
 }
 
 exports.modifyUser = (req, res, next) => {
+    let buf = Buffer.from(req.body.email).toString('base64');
     User.update({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
+        email: buf,
     },
         {
             where: {
