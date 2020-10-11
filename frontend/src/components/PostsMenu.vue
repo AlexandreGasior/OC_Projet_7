@@ -1,31 +1,44 @@
 <template>
     <section class="posts-menu">
         <h1 class="posts-menu__title">Les Posts</h1>
+        <router-link class="posts-menu__create-link" to="/createpost">
+            <button class="posts-menu__create-button"><font-awesome-icon icon="pen" /> Créer un nouveau post</button>
+        </router-link>
         <div class="posts-menu__posts" v-for="post in posts" :key="post.id">
-            <div class="post__title">
-                <p class="post__user">{{ post.user.firstName }}  {{ post.user.lastName }}</p>
+            <router-link :to="{name:'Post', params: {id : post.id}}" class="post__router-link">
+                <p class="post__user">{{ post.user.firstName }} {{ post.user.lastName }}</p>
+                <img :src="post.imageUrl" :alt="post.content" class="post__image">
                 <p class="post__desc">{{ post.content }}</p>
-                <button class="post__delete">
-                    Supprimer
-                </button>
-            </div>
+            </router-link>
         </div>
     </section>
 </template>
 
 <script>
 import axios from 'axios'
+import VueJwtDecode from 'vue-jwt-decode'
 
 export default {
     name: 'PostsMenu',
     data() {
         return {
-            posts: []
+            posts: [],
+            userRole: '',
+            userId: sessionStorage.getItem('userId'),
+            userToken: sessionStorage.getItem('userToken')
         }
     },
     methods: {
-        getAllPosts(){
-            axios.get('http://localhost:3000/api/posts/')
+        getAllPosts() {
+            // Create header to get authentified for request 
+            const header = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.userToken}`
+                }
+            }
+            // Send request to get all posts
+            axios.get('http://localhost:3000/api/posts/', header)
             .then(res => {
                 this.posts = res.data;
             })
@@ -33,6 +46,9 @@ export default {
         }
     },
     beforeMount() {
+        // Use of vue-jwt-decode to decode token and get userRole from it
+        const getRoleFromUserToken = VueJwtDecode.decode(sessionStorage.getItem('userToken')).userRole;
+        this.userRole = getRoleFromUserToken;
         this.getAllPosts();
     }
 }

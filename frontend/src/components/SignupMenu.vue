@@ -36,8 +36,12 @@
             </div>
                                 
             <button class="form__button" type="submit" @click.prevent="submitForm">S'inscrire</button>
-            
         </form>
+
+        <p>Vous avez déjà un compte ?</p>
+        <router-link class="form__router-link" to="/login">
+            <button class="form__login-button">Se connecter</button>
+        </router-link>
     </div>
 </template>
 
@@ -98,7 +102,7 @@ export default {
                         headers:{ 'Content-type': 'application/json'}
                     })
                     .then(res => {  // and create a sessionStorage to save userId and userToken
-                        sessionStorage.setItem('userToken', res.data.token);
+                        sessionStorage.setItem('userToken', res.data.userToken);
                         sessionStorage.setItem('userId', parseInt(res.data.userId));
                         window.location.href="/";
                     })

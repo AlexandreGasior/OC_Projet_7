@@ -19,7 +19,7 @@ exports.createPost = (req, res, next) => {
         likes: 0,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
-        .then(() => res.status(201).json({ message: 'Post crée' }))
+        .then(() => res.status(201).json({ message: 'Post créé' }))
         .catch(error => res.status(400).json({ error }));
 };
 

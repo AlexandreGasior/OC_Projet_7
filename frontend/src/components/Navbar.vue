@@ -10,10 +10,10 @@
       </router-link>
     </div>
     <div>
-      <router-link class="nav__links" to="/signup">Signup</router-link>
-      <router-link class="nav__links" to="/login">Login</router-link>
-      <router-link class="nav__links" to="/user/:id"><font-awesome-icon icon="user" /> Mon profil</router-link>
-      <router-link class="nav__links" to="/">Déconnexion</router-link>
+      <router-link class="nav__link" to="/signup">Inscription</router-link>
+      <router-link class="nav__link" to="/login">Connection</router-link>
+      <router-link class="nav__link" to="/user/:id"><font-awesome-icon icon="user" /> Mon profil</router-link>
+      <router-link class="nav__link" to="/">Déconnexion</router-link>
     </div>
   </nav>
 </template>
@@ -42,7 +42,7 @@ a {
     max-height: 30px;
   }
 
-.nav__links {
+.nav__link {
     padding: 0 0 0 10px;
   }
 }
