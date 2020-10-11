@@ -5,11 +5,10 @@ const bcrypt = require('bcrypt');
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
-            let buf = Buffer.from(req.body.email).toString('base64');
             User.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                email: buf,
+                email: req.body.email,
                 password: hash
             })
                 .then(() => res.status(201).json({ message: 'Utilisateur crée !' }))
@@ -19,8 +18,7 @@ exports.signup = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
-    let buf = Buffer.from(req.body.email).toString('base64');
-    User.findOne({ where: { email: buf } })
+    User.findOne({ where: { email: req.body.email } })
         .then(user => {
             if (!user) {
                 return res.status(401).json({ error: 'Utilisateur non trouvé !' });
@@ -31,9 +29,9 @@ exports.login = (req, res, next) => {
                         return res.status(401).json({ error: 'Mot de passe incorrect !' });
                     }
                     res.status(200).json({
-                        userId: user.userId,
+                        userId: user.id,
                         token: jwt.sign(
-                            { userId: user.userId },
+                            { userId: user.id },
                             process.env.ACCESS_TOKEN,
                             { expiresIn: '24h' }
                         )
@@ -45,27 +43,26 @@ exports.login = (req, res, next) => {
 };
 
 exports.getOneUser = (req, res, next) => {
-    User.findOne({ where: { userId: req.params.id } })
+    User.findOne({ where: { id: req.params.id } })
         .then(user => { res.status(200).json(user) })
         .catch(error => res.status(404).json({ error }));
 }
 
 exports.deleteUser = (req, res, next) => {
-    User.destroy({ where: { userId: req.params.id } })
+    User.destroy({ where: { id: req.params.id } })
         .then(() => res.status(200).json({ message: 'Utilisateur supprimé' }))
         .catch(error => res.status(400).json({ error }));
 }
 
 exports.modifyUser = (req, res, next) => {
-    let buf = Buffer.from(req.body.email).toString('base64');
     User.update({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: buf,
+        email: req.body.email,
     },
         {
             where: {
-                userId: req.params.id
+                id: req.params.id
             }
         })
         .then(() => res.status(200).json({ message: "Utilisateur modifié" }))
