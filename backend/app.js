@@ -37,56 +37,8 @@ app.use('/api/posts', postRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/likes', likeRoutes);
 
-
-//-----------------------------------------------------
-//-----------------------------------------------------
-const User = require('./models/User');
-
-async function test() {
-    await sequelize.sync({
-        force: true
-    });
-    const user1 = await User.create({
-        firstName: 'Paul',
-        lastName: 'McCartney',
-        email: 'paupaul@mc.cartney',
-        password: 'azerty1'
-    })
-    const user2 = await User.create({
-        firstName: 'Hughe',
-        lastName: 'Aufraise',
-        email: 'hugue@mc.fraise',
-        password: 'azerty1'
-    })
-    await user1.createPost({
-        content: 'Contenu numéro UNO',
-        imageUrl: 'une super URL'
-    });
-    await user1.createPost({
-        content: 'Contenu numéro DOS',
-        imageUrl: 'une super URL again'
-    });
-    await user2.createPost({
-        content: 'Contenu numéro UNO mais du petit Hughe',
-        imageUrl: 'URL de BG'
-    });
-    await user1.createComment({
-        postId: 2,
-        content: 'wesh C Tro ouf'
-    });
-    await user2.createComment({
-        postId: 2,
-        content: 'ta tro raison'
-    });
-    await user2.createLike({
-        postId: 2,
-    });
-}
-
-test();
-//-----------------------------------------------------
-//-----------------------------------------------------
-
+// DB sync
+sequelize.sync();
 
 // Export
 module.exports = app;

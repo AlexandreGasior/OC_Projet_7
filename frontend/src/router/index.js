@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Signup from '../views/Signup.vue'
-import Login from '../views/Login.vue'
-import Posts from '../views/Posts.vue'
+import Signup from '../views/Signup'
+import Login from '../views/Login'
+import Posts from '../views/Posts'
+import CreatePost from '../views/CreatePost'
+import Post from '../views/Post'
+import ModifyPost from '../views/ModifyPost'
+import Profil from '../views/Profil'
 
 Vue.use(VueRouter)
 
@@ -21,6 +25,26 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/profil',
+    name: 'Profil',
+    component: Profil
+  },
+  {
+    path: '/createpost',
+    name: 'CreatePost',
+    component: CreatePost
+  },
+  {
+    path: '/post/:id',
+    name: 'Post',
+    component: Post
+  },
+  {
+    path: '/modifypost/:id',
+    name: 'ModifyPost',
+    component: ModifyPost
   }
 ]
 

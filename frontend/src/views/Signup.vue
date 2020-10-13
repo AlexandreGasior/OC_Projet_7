@@ -1,21 +1,21 @@
 <template>
     <div class="signup">
-        <Navbar/>
-        <SignupMenu/>
+        <Navbar />
+        <SignupMenu />
     </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar'
-import SignupMenu from '../components/SignupMenu'
+import Navbar from "../components/Navbar";
+import SignupMenu from "../components/SignupMenu";
 
 export default {
-    name: 'Signup',
-    components:{
+    name: "Signup",
+    components: {
         Navbar,
-        SignupMenu
-    }
-}
+        SignupMenu,
+    },
+};
 </script>
 
 <style lang="scss">

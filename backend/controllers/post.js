@@ -24,11 +24,11 @@ exports.createPost = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-    Post.findOne({ where: { postId: req.params.id } })
+    Post.findOne({ where: { id: req.params.id } })
         .then(post => {
             const filename = post.imageUrl.split('/images/')[1];
             fs.unlink(`images/${filename}`, () => {
-                Post.destroy({ where: { postId: req.params.id } })
+                Post.destroy({ where: { id: req.params.id } })
                     .then(() => res.status(200).json({ message: "Post supprimé ! " }))
                     .catch(error => res.status(400).json({ error }));
             })
@@ -37,20 +37,18 @@ exports.deletePost = (req, res, next) => {
 };
 
 exports.getOnePost = (req, res, next) => {
-    Post.findAll({ where: { postId: req.params.id }, include: [{ model: User }] })
+    Post.findOne({ where: { id: req.params.id }, include: [{ model: User }] })
         .then(post => res.status(200).json(post))
         .catch(error => res.status(400).json({ error }));
 };
 
 exports.modifyPost = (req, res, next) => {
-    let PostObject;
-    console.log(req.params.id)
     if (req.file) {
-        PostObject = {
+        let PostObject = {
             content: req.body.content,
             imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         }
-        Post.findOne({ where: { postId: req.params.id } })
+        Post.findOne({ where: { id: req.params.id } })
             .then(post => {
                 const filename = post.imageUrl.split('/images/')[1];
                 fs.unlink(`images/${filename}`, () => {
@@ -59,7 +57,7 @@ exports.modifyPost = (req, res, next) => {
                     },
                         {
                             where: {
-                                postId: req.params.id
+                                id: req.params.id
                             }
                         })
                         .then(() => res.status(200).json({ message: "Post modifié !" }))

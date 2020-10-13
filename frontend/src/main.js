@@ -9,9 +9,9 @@ Vue.use(Vuelidate)
 
 // Using FontAwesome icons for vue.js
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUser, faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faTrash, faPen, faImages, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faUser, faTrash, faPen)
+library.add(faUser, faTrash, faPen, faImages, faPaperPlane)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false

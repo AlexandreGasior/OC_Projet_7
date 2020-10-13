@@ -1,23 +1,23 @@
 <template>
-    <div class="create-post">
+    <div class="home">
         <div class="header">
             <Navbar />
         </div>
         <div class="contentBar">
-            <CreatePostMenu />
+            <ModifyPostMenu />
         </div>
     </div>
 </template>
 
 <script>
 import Navbar from "../components/Navbar";
-import CreatePostMenu from "../components/CreatePostMenu";
+import ModifyPostMenu from "../components/ModifyPostMenu";
 
 export default {
-    name: "CreatePost",
+    name: "ModifyPost",
     components: {
         Navbar,
-        CreatePostMenu,
+        ModifyPostMenu,
     },
 };
 </script>
