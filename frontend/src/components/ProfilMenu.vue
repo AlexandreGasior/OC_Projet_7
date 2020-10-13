@@ -8,7 +8,7 @@
             <strong>Nom :</strong> {{ user.lastName }}
         </p>
         <p class="profil-menu__email">
-            <strong>Votre e-mail :</strong> {{ user.email }}
+            <strong>E-mail :</strong> {{ user.email }}
         </p>
 
         <button @click.prevent="deleteUser" class="profil-menu__delete-button">
