@@ -1,11 +1,11 @@
-const { sequelize } = require('../models/Post');
+const Sequelize = require('sequelize');
 const Post = require('../models/Post');
 const User = require('../models/User');
 const fs = require('fs');
 
 exports.getAllPosts = (req, res, next) => {
     Post.findAll({
-        order: sequelize.literal('(createdAt) DESC'),
+        order: Sequelize.literal('(createdAt) DESC'),
         include: [{ model: User }]
     })
         .then(posts => res.status(200).json(posts))

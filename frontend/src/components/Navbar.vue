@@ -4,7 +4,7 @@
             <router-link to="/">
                 <img
                     class="nav__logo"
-                    src="../assets/icon-left-font-monochrome-white.svg"
+                    src="../assets/icon-left-font-no-background.png"
                     alt="logo groupomania"
                 />
             </router-link>
@@ -13,7 +13,7 @@
             <router-link class="nav__link" to="/signup"
                 >Inscription</router-link
             >
-            <router-link class="nav__link" to="/login">Connection</router-link>
+            <router-link class="nav__link" to="/login">Connexion</router-link>
             <router-link class="nav__link" to="/profil"
                 ><font-awesome-icon icon="user" /> Mon profil</router-link
             >

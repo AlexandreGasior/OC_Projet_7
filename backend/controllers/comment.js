@@ -1,4 +1,4 @@
-const { sequelize } = require('../models/Post');
+const Sequelize = require('sequelize');
 const User = require('../models/User');
 const Comment = require('../models/Comment');
 
@@ -6,7 +6,7 @@ exports.getCommentsfromPost = (req, res, next) => {
     console.log(req.params.id);
     Comment.findAll({
         where: { postId: req.params.id },
-        order: sequelize.literal('(createdAt) DESC'),
+        order: Sequelize.literal('(createdAt) DESC'),
         include: [{ model: User }]
     })
 
