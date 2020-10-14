@@ -124,7 +124,7 @@ export default {
 
     &__author-name {
         font-style: italic;
-        color: silver;
+        color: #192946;
     }
 }
 </style>
