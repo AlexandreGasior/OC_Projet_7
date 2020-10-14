@@ -97,6 +97,7 @@ export default {
         border-radius: 15px;
         padding: 15px 30px;
         margin-bottom: 30px;
+        cursor: pointer;
     }
 
     &__posts {
