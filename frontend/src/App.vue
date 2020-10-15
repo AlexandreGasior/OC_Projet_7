@@ -36,5 +36,6 @@ body {
     left: 0;
     background-color: #192946;
     padding: 5px 0;
+    border-top: 1px solid #d1515a;
 }
 </style>

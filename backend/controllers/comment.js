@@ -16,14 +16,16 @@ exports.getCommentsfromPost = (req, res, next) => {
 
 exports.createComment = (req, res, next) => {
     Comment.create({
-        content: req.body.content
+        content: req.body.content,
+        userId: req.body.userId,
+        postId: req.params.id
     })
         .then(() => res.status(201).json({ message: 'Commentaire créé' }))
         .catch(error => res.status(400).json({ error }));
 };
 
 exports.deleteComment = (req, res, next) => {
-    Comment.destroy({ where: { commentId: req.params.id } })
+    Comment.destroy({ where: { id: req.params.id } })
         .then(() => res.status(200).json({ message: 'Commentaire supprimé' }))
         .catch(error => res.status(400).json({ error }));
 }
@@ -34,7 +36,7 @@ exports.modifyComment = (req, res, next) => {
     },
         {
             where: {
-                commentId: req.params.id
+                id: req.params.id
             }
         })
         .then(() => res.status(200).json({ message: 'Commentaire modifié' }))

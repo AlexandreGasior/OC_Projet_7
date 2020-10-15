@@ -96,7 +96,6 @@
                     <input
                         type="password"
                         name="password"
-                        id="password"
                         class="signup-form-menu__form-input"
                         placeholder="Mot de passe"
                         v-model.lazy="$v.password.$model"

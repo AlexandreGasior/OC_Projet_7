@@ -25,15 +25,23 @@
                 <font-awesome-icon icon="trash" /> Supprimer
             </button>
         </div>
+        <!-- <CommentsMenu /> -->
+        <CreateCommentMenu />
     </section>
 </template>
 
 <script>
 import axios from "axios";
 import VueJwtDecode from "vue-jwt-decode";
+// import CommentsMenu from "./CommentsMenu";
+import CreateCommentMenu from "./CreateCommentMenu";
 
 export default {
     name: "PostMenu",
+    components: {
+        // CommentsMenu,
+        CreateCommentMenu,
+    },
     data() {
         return {
             postId: window.location.href.substr(-1),

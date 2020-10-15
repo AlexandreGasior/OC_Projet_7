@@ -36,6 +36,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #d1515a;
 
     a {
         font-weight: bold;
