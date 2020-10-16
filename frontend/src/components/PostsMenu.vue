@@ -43,7 +43,6 @@ export default {
             posts: [],
             userRole: VueJwtDecode.decode(sessionStorage.getItem("userToken"))
                 .userRole,
-            userId: sessionStorage.getItem("userId"),
             userToken: sessionStorage.getItem("userToken"),
         };
     },
