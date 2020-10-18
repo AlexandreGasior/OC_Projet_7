@@ -10,14 +10,30 @@
             </router-link>
         </div>
         <div>
-            <router-link class="nav__link" to="/signup"
+            <router-link
+                class="nav__link"
+                v-if="$store.state.authenticated == false"
+                to="/signup"
                 >Inscription</router-link
             >
-            <router-link class="nav__link" to="/login">Connexion</router-link>
-            <router-link class="nav__link" to="/profil"
+            <router-link
+                class="nav__link"
+                v-if="$store.state.authenticated == false"
+                to="/login"
+                >Connexion</router-link
+            >
+            <router-link
+                class="nav__link"
+                v-if="$store.state.authenticated == true"
+                to="/profil"
                 ><font-awesome-icon icon="user" /> Mon profil</router-link
             >
-            <router-link class="nav__link" to="/">Déconnexion</router-link>
+            <span
+                class="nav__link"
+                v-if="$store.state.authenticated == true"
+                @click="logout"
+                >Déconnexion</span
+            >
         </div>
     </nav>
 </template>
@@ -25,6 +41,13 @@
 <script>
 export default {
     name: "Navbar",
+    methods: {
+        logout() {
+            sessionStorage.clear();
+            this.$store.commit("setAuthentication", false);
+            this.$router.push("/Login");
+        },
+    },
 };
 </script>
 
@@ -49,6 +72,15 @@ export default {
 
     .nav__link {
         padding: 0 0 0 10px;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: #d1515a;
+            opacity: 0.7;
+        }
     }
 }
 </style>

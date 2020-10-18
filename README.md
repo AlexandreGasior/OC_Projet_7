@@ -6,13 +6,14 @@
 - Créer une base de donnée "**groupomania**" ( ou n'importe quel autre nom, celui-ci sera renseigné dans _.env_ )
 - Créer un utilisateur en notant bien son **nom**, son **mot de passe** et sa **clé secrête** ( cette dernière peut être identique au mot de passe )
 - Créer un fichier **.env** dans le dossier _./backend_ et le renseigner avec les données précédentes au format suivant :
+
   HOST = localhost
   DATABASE = **groupomania**
-  DB_USERNAME = **nom**
+  DB*USERNAME = **nom**
   DB_PASSWORD = **mot de passe**
   PORT = 3000
   SECRET_KEY = **clé secrête**
-  ACCESS_TOKEN = **token** ( _n'importe quel chaîne de caractère fera l'affaire, celle-ci sera utilisé par jwt_ )
+  ACCESS_TOKEN = **token** ( \_n'importe quel chaîne de caractère fera l'affaire, celle-ci sera utilisé par jwt* )
 
 #### Backend
 
