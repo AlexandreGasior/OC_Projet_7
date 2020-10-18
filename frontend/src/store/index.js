@@ -10,7 +10,6 @@ export default new Vuex.Store({
   },
   mutations: {
     setAuthentication(state, status) {
-      console.log("Modification du state :" + status)
       state.authenticated = status
       state.userToken = sessionStorage.getItem('userToken')
     }
