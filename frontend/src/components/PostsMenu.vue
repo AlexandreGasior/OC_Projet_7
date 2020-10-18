@@ -40,7 +40,7 @@ export default {
     name: "PostsMenu",
     data() {
         return {
-            posts: [],
+            posts: {},
             userRole: VueJwtDecode.decode(sessionStorage.getItem("userToken"))
                 .userRole,
             userToken: sessionStorage.getItem("userToken"),

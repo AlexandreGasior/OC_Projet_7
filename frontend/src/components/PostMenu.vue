@@ -117,7 +117,10 @@ export default {
     data() {
         return {
             postId: window.location.href.substr(-1),
-            post: {},
+            post: {
+                id: 0,
+                user: {},
+            },
             comments: {},
             commentModify: false,
             commentContent: "",
