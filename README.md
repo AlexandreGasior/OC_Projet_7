@@ -4,6 +4,7 @@
 
 - Démarrer le serveur MySQL
 - Créer une base de donnée "**groupomania**" ( ou n'importe quel autre nom, celui-ci sera renseigné dans _.env_ )
+- (Importer "groupomania.sql" inclus à la racine du fichier dans la base de donnée)
 - Créer un utilisateur en notant bien son **nom**, son **mot de passe** et sa **clé secrête** ( cette dernière peut être identique au mot de passe )
 - Créer un fichier **.env** dans le dossier _./backend_ et le renseigner avec les données précédentes au format suivant :
   - HOST = localhost
