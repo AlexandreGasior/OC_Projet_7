@@ -1,9 +1,8 @@
 <template>
     <section class="signup-form-menu">
         <div class="signup-form-menu__main">
+            <h1 class="signup-form-menu__title">Inscription</h1>
             <form method="POST" class="signup-form-menu__form">
-                <h1 class="signup-form-menu__title">Inscription</h1>
-
                 <div class="signup-form-menu__form-box">
                     <label for="firstName" class="signup-form-menu__form-label"
                         >Prénom</label
@@ -113,15 +112,14 @@
                         caractères.</span
                     >
                 </div>
-
-                <button
-                    class="signup-form-menu__form-submit-button"
-                    type="submit"
-                    @click.prevent="submitForm"
-                >
-                    S'inscrire
-                </button>
             </form>
+            <button
+                class="signup-form-menu__form-submit-button"
+                type="submit"
+                @click.prevent="submitForm"
+            >
+                S'inscrire
+            </button>
 
             <p class="signup-form-menu__login-paragraph">
                 Vous avez déjà un compte ?
@@ -235,6 +233,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
 
     &__main {
         border-radius: 30px;
@@ -252,6 +251,7 @@ export default {
     &__form {
         width: 90%;
         margin: 0 auto 30px auto;
+        text-align: left;
     }
 
     &__form-label {
@@ -260,7 +260,7 @@ export default {
     }
 
     &__form-input {
-        width: 80%;
+        width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;

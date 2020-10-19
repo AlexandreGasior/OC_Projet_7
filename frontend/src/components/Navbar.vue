@@ -26,7 +26,10 @@
                 class="nav__link"
                 v-if="$store.state.authenticated == true"
                 to="/profil"
-                ><font-awesome-icon icon="user" /> Mon profil</router-link
+                ><span class="nav__icon"
+                    ><font-awesome-icon icon="user"
+                /></span>
+                Profil</router-link
             >
             <span
                 class="nav__link"
@@ -60,6 +63,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #d1515a;
+    max-width: 100%;
 
     a {
         font-weight: bold;
@@ -68,6 +72,9 @@ export default {
 
     .nav__logo {
         max-height: 30px;
+        @media (max-width: 500px) {
+            max-height: 20px;
+        }
     }
 
     .nav__link {
@@ -80,6 +87,15 @@ export default {
             text-decoration: underline;
             text-decoration-color: #d1515a;
             opacity: 0.7;
+        }
+        @media (max-width: 350px) {
+            font-size: 0.9rem;
+        }
+    }
+
+    .nav__icon {
+        @media (max-width: 350px) {
+            display: none;
         }
     }
 }

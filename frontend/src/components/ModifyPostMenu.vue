@@ -25,14 +25,14 @@
                         @change="onFileSelected"
                     />
                 </div>
-                <button
-                    type="submit"
-                    class="modify-post-menu__form-submit-button"
-                    @click.prevent="modifyPost"
-                >
-                    Valider
-                </button>
             </form>
+            <button
+                type="submit"
+                class="modify-post-menu__form-submit-button"
+                @click.prevent="modifyPost"
+            >
+                Valider
+            </button>
             <div v-show="submited" class="modify-post-menu__form-error">
                 <p>{{ message }}</p>
             </div>
@@ -135,6 +135,7 @@ export default {
     &__form {
         width: 90%;
         margin: 0 auto 30px auto;
+        text-align: left;
     }
 
     &__form-label {
@@ -143,7 +144,7 @@ export default {
     }
 
     &__form-input {
-        width: 80%;
+        width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
@@ -159,6 +160,7 @@ export default {
         border: none;
         border-radius: 15px;
         padding: 15px 30px;
+        margin-bottom: 15px;
         cursor: pointer;
         &:hover {
             opacity: 0.7;

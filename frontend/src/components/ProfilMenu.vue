@@ -99,9 +99,9 @@ export default {
     }
 
     &__delete-button {
-        background-color: #192946;
-        color: #fff;
-        border: none;
+        background-color: #fff;
+        color: #192946;
+        border: 1px solid #fff;
         border-radius: 15px;
         padding: 5px 10px;
         margin-bottom: 15px;

@@ -1,9 +1,8 @@
 <template>
     <section class="login-form-menu">
         <div class="login-form-menu__main">
+            <h1 class="login-form-menu__title">Connexion</h1>
             <form method="POST" class="login-form-menu__form">
-                <h1 class="login-form-menu__title">Connexion</h1>
-
                 <span
                     class="login-form-menu__form-error"
                     v-if="requestError && submited"
@@ -59,15 +58,14 @@
                         caractères.</span
                     >
                 </div>
-
-                <button
-                    class="login-form-menu__form-submit-button"
-                    type="submit"
-                    @click.prevent="submitForm"
-                >
-                    Se connecter
-                </button>
             </form>
+            <button
+                class="login-form-menu__form-submit-button"
+                type="submit"
+                @click.prevent="submitForm"
+            >
+                Se connecter
+            </button>
 
             <p class="login-form-menu__signup-paragraph">
                 Vous n'avez pas encore de compte ?
@@ -162,6 +160,7 @@ export default {
     &__form {
         width: 90%;
         margin: 0 auto 30px auto;
+        text-align: left;
     }
 
     &__form-label {
@@ -170,7 +169,7 @@ export default {
     }
 
     &__form-input {
-        width: 80%;
+        width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
