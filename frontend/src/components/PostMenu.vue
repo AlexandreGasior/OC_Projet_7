@@ -9,6 +9,7 @@
                 <span class="post-menu__fullname"
                     >{{ post.user.firstName }} {{ post.user.lastName }}</span
                 >
+                le {{ post.createdAt.split("T")[0] }}
             </p>
             <router-link
                 class="post-menu__modify-router"
@@ -38,7 +39,7 @@
                 :key="comment.id"
             >
                 <p class="comments-menu__comment-author">
-                    Posté par
+                    Posté le {{ comment.createdAt.split("T")[0] }} par
                     <span class="comments-menu__comment-fullname"
                         >{{ comment.user.firstName }}
                         {{ comment.user.lastName }}</span
@@ -119,6 +120,10 @@ export default {
             postId: window.location.href.substr(-1),
             post: {
                 id: 0,
+                imageUrl: "",
+                content: "",
+                createdAt: "",
+                updatedAt: "",
                 user: {},
             },
             comments: {},
