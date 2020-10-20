@@ -70,7 +70,8 @@
                     class="comments-menu__modify-comment-menu"
                     v-if="
                         (comment.userId == userId || userRole == 'admin') &&
-                        commentModify == true
+                        commentModify == true &&
+                        comment.id == commentModifyId
                     "
                 >
                     <form action="comments-menu__modify-comment-form">
@@ -128,6 +129,7 @@ export default {
             },
             comments: {},
             commentModify: false,
+            commentModifyId: -1,
             commentContent: "",
             submited: false,
             message: "",
@@ -180,6 +182,7 @@ export default {
         },
         modifyCommentSwitch(comment) {
             this.commentModify = !this.commentModify;
+            this.commentModifyId = comment.id;
             if (this.commentModify) {
                 this.commentContent = comment.content;
                 document
